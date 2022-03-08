@@ -1,0 +1,27 @@
+# @name getAllCategories
+GET http://localhost:3000/api/categories
+
+###
+
+# @name addNewCategory
+POST  http://localhost:3000/api/categories
+Content-Type: application/json
+
+{
+    "name" : "SamSung"
+}
+
+###     //QiAE3lt là id cần sửa | xóa
+
+# @name updateCategory
+PATCH   http://localhost:3000/api/categories/QiAE3lt
+Content-Type: application/json
+
+{
+    "name" : "Apple"
+}
+
+###
+
+# @name removeCategory
+DELETE    http://localhost:3000/api/categories/QiAE3lt

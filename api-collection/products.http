@@ -1,0 +1,73 @@
+@baseUrl=http://localhost:3000/api
+@resourceName=products
+
+# Products
+
+# @name getAll
+GET {{baseUrl}}/{{resourceName}}
+// lấy tất cả 
+
+###
+
+# @name filterProducts
+GET {{baseUrl}}/{{resourceName}}?price_gte=900
+// lấy ra element có thuộc tính { price > 900 }
+
+###
+
+# @name filterProducts
+GET {{baseUrl}}/{{resourceName}}?color=tan
+// lấy ra element có thuộc tính { color = tan }
+
+###
+
+# @name filterProducts
+GET {{baseUrl}}/{{resourceName}}?name_like=Ball
+// lấy ra element có thuộc tính { name && trong name có kí tự = Ball }
+
+###
+
+# @name pagination
+GET {{baseUrl}}/{{resourceName}}?_page=1&_limit=3
+// lấy ra element có thuộc tính { page : 1 && chỉ lấy 3 element đầu tiên }
+
+###
+
+# @name sort
+GET {{baseUrl}}/{{resourceName}}?_sort=price&_order=desc
+// lấy ra element sắp xếp theo thuộc tính { price && chiều desc(giảm dần)|asc(tăng dần) }
+
+
+###
+
+# @name addNew
+POST {{baseUrl}}/{{resourceName}}
+Content-Type: application/json
+
+{
+  "categoryId": "28759f7e-3509-4064-920a-406dd426033a",
+  "name": "Tasty Plastic Chips",
+  "color": "cyan",
+  "price": 931,
+  "description": "The beautiful range of Apple Naturalé that has an exciting mix of natural ingredients. With the Goodness of 100% Natural Ingredients",
+  "thumbnailUrl": "http://placeimg.com/400/400"
+}
+// tạo 1 product mới
+
+###
+
+# @name update
+PATCH {{baseUrl}}/{{resourceName}}/l-iTYGL
+Content-Type: application/json
+
+{
+  "name": "Tasty Plastic Chips Update",
+  "color": "red",
+  "price": 950
+}
+// sửa 1 product có id === l-iTYGL
+
+###
+
+# @name remove
+DELETE {{baseUrl}}/{{resourceName}}/2

@@ -61,6 +61,7 @@ router.render = (req, res) => {
 // Sử dụng bộ định tuyến mặc định
 // server.use(router)
 server.use('/api', router)       // tạo thêm đuôi /api sau localhost
-server.listen(3000, () => {
-    console.log('JSON Server is running')
+const PORT = process.env.PORT || 3000
+server.listen(PORT, () => {
+    console.log('JSON Server chạy')
 })
